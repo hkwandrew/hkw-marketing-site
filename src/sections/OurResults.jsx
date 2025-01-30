@@ -7,13 +7,13 @@ import Cards from '../styled-components/Cards'
 
 const ourResults = [
     {
-        image: '/higher-search-visibility.svg',
+        image: 'higher-search-visibility.svg',
         title: 'Higher search visibility',
         description: 'Boost your website’s visibility on search engines.',
         className: 'our-results-card',
     },
     {
-        image: '/increased-website-traffic.svg',
+        image: 'increased-website-traffic.svg',
         title: 'Increased website traffic',
         description: 'Attract more local customers through organic search.',
         className: 'our-results-card',
@@ -25,7 +25,7 @@ const ourResults = [
         className: 'our-results-card',
     },
     {
-        image: '/sales-and-revenue-growth.svg',
+        image: 'sales-and-revenue-growth.svg',
         title: 'Sales and revenue growth',
         description: 'Reach a broader audience and drive more sales.',
         className: 'our-results-card',

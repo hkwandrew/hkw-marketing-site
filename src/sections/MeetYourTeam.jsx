@@ -65,25 +65,25 @@ const teamMembers = [
     {
         title: 'Travis Irwin',
         description: 'Chief Marketing Officer',
-        image: '/travis.png',
+        image: 'travis.png',
         className: 'meet-team-card',
     },
     {
         title: 'Jennifer Chang',
         description: 'SEO Strategist',
-        image: '/jenn.png',
+        image: 'jenn.png',
         className: 'meet-team-card',
     },
     {
         title: 'Alondra Abdur-Rahman',
         description: 'PPC Strategist',
-        image: '/alondra.png',
+        image: 'alondra.png',
         className: 'meet-team-card',
     },
     {
         title: 'Gabi Castillo',
         description: 'Project Manager',
-        image: '/gabi.png',
+        image: 'gabi.png',
         className: 'meet-team-card',
     },
 ]

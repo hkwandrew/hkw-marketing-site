@@ -167,7 +167,7 @@ const TestimonialSlider = () => {
                 {[...testimonials, ...testimonials].map(
                     (testimonial, index) => (
                         <TestimonialCard key={index}>
-                            <img src='/quote.svg' alt='quote' />
+                            <img src='quote.svg' alt='quote' />
                             <Quote>{testimonial.quote}</Quote>
                             <Attribution>
                                 <Author>{testimonial.name}</Author>

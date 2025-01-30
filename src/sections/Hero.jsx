@@ -20,7 +20,7 @@ const HeroWrapper = styled.div`
             rgba(132, 15, 83, 0.19) 88.32%,
             rgba(156, 17, 98, 0) 100%
         ),
-        url('/hero-bg.png') lightgray -69.472px 0px / 109.649% 100% no-repeat;
+        url('hero-bg.png') lightgray -69.472px 0px / 109.649% 100% no-repeat;
     background-attachment: fixed;
     text-align: center;
     height: 887px;

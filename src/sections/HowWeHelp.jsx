@@ -8,12 +8,12 @@ import Cards from '../styled-components/Cards'
 const howWeHelpCards = [
     {
         title: 'Expand your customer base',
-        image: '/expand-your-customer-base.svg',
+        image: 'expand-your-customer-base.svg',
         className: 'our-team-card',
     },
     {
         title: 'Optimize and maintain your website',
-        image: '/optimize-and-maintain.svg',
+        image: 'optimize-and-maintain.svg',
         className: 'our-team-card',
     },
     {

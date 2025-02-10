@@ -7,7 +7,6 @@ import GlobalStyles from './GlobalStyles'
 import OurProcess from './sections/OurProcess'
 import OurResults from './sections/OurResults'
 import TestimonialSlider from './styled-components/TestimonialSlider'
-import MeetYourTeam from './sections/MeetYourTeam'
 import ContactForm from './styled-components/ContactForm'
 
 const App = () => {
@@ -20,7 +19,6 @@ const App = () => {
             <OurProcess />
             <OurResults />
             <TestimonialSlider />
-            <MeetYourTeam />
             <ContactForm />
         </Theme>
     )

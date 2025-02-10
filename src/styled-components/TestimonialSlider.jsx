@@ -6,7 +6,7 @@ const SliderContainer = styled.div`
     width: 100%;
     position: relative;
     background: #fff;
-    padding: 0 60px;
+    padding: 0 60px 80px;
 `
 
 const SliderTrack = styled.div`

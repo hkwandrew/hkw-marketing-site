@@ -55,46 +55,42 @@ const OurResultsWrapper = styled.section`
 `
 
 const CardsWrapper = styled.div`
-    margin-block: 2.25rem 4.25rem;
     ul {
-        display: flex;
-        gap: 24px;
+        margin-block: 2.25rem 4.25rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
 
         .our-results-card {
+            display: flex;
             flex-direction: column;
+            gap: 1.5rem;
             border-radius: 16px;
             border: 1px solid #f1f2f5;
-            padding: 2rem;
-            gap: 1.5rem;
-            width: 312px;
+            padding: var(--space-6);
             background: #fff;
-            margin-inline: auto;
 
-            span:has(img) {
+            img {
                 width: 15.5rem;
-                height: auto;
-
-                img {
-                    width: 100%;
-                    height: auto;
-                }
+                height: 7rem;
             }
 
             h3 {
                 margin-block-end: 1.5rem;
                 font-size: 1.5rem;
-                line-height: 1.2;
-                letter-spacing: -0.48px;
-                font-weight: 600;
+                color: var(--color-secondary);
+                line-height: var(--line-height-heading1);
+                letter-spacing: var(--letter-spacing-heading2);
+                font-weight: var(--font-weight-semi-bold);
             }
 
-            p {
-                font-size: 1.25rem;
-                line-height: 1.2;
-                letter-spacing: -0.4px;
-                font-weight: 400;
-                color: #2b3746;
-            }
+            //         p {
+            //             font-size: 1.25rem;
+            //             line-height: var(--line-height-heading1);
+            //             letter-spacing: -0.4px;
+            //             font-weight: var(--font-weight-regular);
+            //             color: var(--color-secondary);
+            //         }
         }
     }
 `
@@ -113,7 +109,7 @@ const OurResults = () => {
                     Investing in our digital marketing services yields:
                 </StyledParagraph>
                 <CardsWrapper>
-                    <Cards cards={ourResults} className='our-results-cards' />
+                    <Cards cards={ourResults} />
                 </CardsWrapper>
             </StyledWidthContainer>
         </OurResultsWrapper>

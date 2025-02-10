@@ -25,6 +25,11 @@ const HeroWrapper = styled.div`
     text-align: center;
     height: 887px;
 
+    @media (max-width: 767px) {
+        background-position: center center;
+        background-size: cover;
+    }
+
     .header-eyebrow {
         color: var(--color-white);
     }
@@ -48,6 +53,11 @@ const Subtitle = styled(StyledParagraph)`
     font-size: 1.75rem;
     color: var(--color-white);
     letter-spacing: -0.56px;
+
+    @media (max-width: 767px) {
+        font-size: 1.25rem;
+        letter-spacing: -0.44px;
+    }
 `
 const ReviewCards = styled.div`
     position: absolute;
@@ -66,7 +76,6 @@ const ReviewCards = styled.div`
     margin-inline: auto;
     margin-block-end: auto;
     max-width: 90rem;
-    margin-inline: auto;
     left: 0;
     right: 0;
 
@@ -86,8 +95,21 @@ const ReviewCards = styled.div`
     svg:nth-of-type(4) {
         margin-inline-start: auto;
     }
-`
 
+    @media (max-width: 767px) {
+        position: relative;
+        // grid-template-areas:
+        //     'plumbers .'
+        //     '. pests'
+        //     'gifts .'
+        //     '. charity'
+        //     'attractions .';
+        svg {
+            width: unset;
+        }
+        display: flex;
+    }
+`
 const Hero = () => {
     const reviewCardsRef = useRef(null)
 

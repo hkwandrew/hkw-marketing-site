@@ -99,6 +99,7 @@ const CardsWrapper = styled.div`
                 display: flex;
                 min-width: var(--space-8)
                 height: var(--space-8);
+                padding: 12px 11.5px 12px 12.5px;
                 justify-content: center;
                 align-items: center;
                 border-radius: var(--radius-small);
@@ -107,6 +108,7 @@ const CardsWrapper = styled.div`
                 img {
                     display: block;
                     width: var(--space-5);
+                    max-inline-size: unset;
                 }
             }
 

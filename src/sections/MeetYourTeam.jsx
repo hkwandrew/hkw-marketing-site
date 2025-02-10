@@ -36,27 +36,27 @@ const CardsWrapper = styled.div`
 
         h3 {
             color: #292929;
-            font-size: 1.5rem;
-            padding-block: 1.5rem 0.5rem;
+            font-size: var(--space-5);
+            padding-block: var(--space-5) var(--space-1);
             line-height: 1.32;
-            font-weight: 600;
+            font-weight: var(--font-weight-semi-bold);
         }
 
         p {
-            color: #2b3746;
-            font-size: 16px;
-            font-weight: 400;
+            color: var(--color-secondary);
+            font-size: var(--font-size-body2);
+            font-weight: var(--font-weight-regular);
             line-height: 1.32;
         }
 
         img {
-            border-radius: 1rem;
-            transition: var(--transition-hover);
+            border-radius: var(--radius-large);
+            // transition: var(--transition-hover);
 
-            &:hover {
-                filter: drop-shadow(var(--shadow-small));
-                transition: var(--transition-all);
-            }
+            // &:hover {
+            //     filter: drop-shadow(var(--shadow-small));
+            //     transition: var(--transition-all);
+            // }
         }
     }
 `

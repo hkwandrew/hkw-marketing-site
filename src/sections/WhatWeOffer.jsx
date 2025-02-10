@@ -70,9 +70,14 @@ const CardsWrapper = styled.div`
     max-width: 90rem;
 
     ul {
+        padding: 0;
         display: grid;
         gap: 1rem;
         grid-template-columns: repeat(4, 1fr);
+
+        @media (max-width: 767px) {
+            grid-template-columns: 1fr;
+        }
 
         li {
             overflow: hidden;

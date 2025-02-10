@@ -28,8 +28,8 @@ const SliderTrack = styled.div`
 
 const TestimonialCard = styled.div`
     background-color: #fff2f3;
-    padding: 2rem;
-    border-radius: 1rem;
+    padding: var(--space-6);
+    border-radius: var(--radius-large);
     width: 395px;
     text-align: left;
     display: flex;
@@ -50,28 +50,30 @@ const Attribution = styled.div`
 
 const Quote = styled.p`
     font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #2b3746;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-eyebrow);
+    color: var(--color-secondary);
     letter-spacing: -0.96px;
-    display: grid;
+    display: flex;
     justify-content: start;
     align-items: start;
+    flex-direction: column;
+    flex-grow: 1;
 `
 
 const Author = styled.p`
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: var(--font-weight-semi-bold);
     line-height: 1.32;
-    color: #2b3746;
+    color: var(--color-secondary);
 `
 
 const Designation = styled.p`
     font-size: 0.75rem;
-    font-weight: 400;
+    font-weight: var(--font-weight-regular);
     text-transform: uppercase;
     line-height: 1.32;
-    color: #2b3746;
+    color: var(--color-secondary);
 `
 
 const testimonials = [

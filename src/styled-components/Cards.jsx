@@ -3,6 +3,10 @@ import styled from '@emotion/styled'
 const CardListWrapper = styled.ul`
     display: flex;
     margin-inline: auto;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
 `
 
 const Card = styled.li`
@@ -12,19 +16,13 @@ const Card = styled.li`
     position: relative;
     background-color: ${(props) =>
         props.$backgroundColor || 'var(--color-white)'};
-    transition: var(--transition-hover);
-
-    &:hover {
-        filter: drop-shadow(var(--shadow-small));
-        transition: var(--transition-all);
-    }
 `
 
 const ImgWrapper = styled.span`
     img {
         width: 100%;
         height: auto;
-        object-fit: contain;
+        // object-fit: contain;
     }
 `
 
@@ -46,8 +44,8 @@ const ContentWrapper = styled.span`
 `
 
 const Title = styled.h3`
-    line-height: 1;
-    font-weight: 600;
+    line-height: var(--line-height-eyebrow);
+    font-weight: var(--font-weight-semi-bold);
 `
 
 const Description = styled.p``

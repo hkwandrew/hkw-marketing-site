@@ -52,7 +52,7 @@ const Button = styled.a`
     font-size: var(--font-size-body2);
     font-family: var(--font-primary);
     font-weight: var(--font-weight-bold);
-    line-height: 1;
+    line-height: var(--line-height-eyebrow);
     text-transform: uppercase;
     transition: var(--transition-all);
     text-align: center;

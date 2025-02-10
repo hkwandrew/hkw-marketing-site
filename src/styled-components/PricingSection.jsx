@@ -8,6 +8,14 @@ const PricingContainer = styled.div`
     gap: 3rem;
     max-width: 90rem;
     margin-inline: auto;
+
+    @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+
+        div:last-child {
+            margin-block-start: 3rem;
+        }
+    }
 `
 
 const PricingSection = () => {

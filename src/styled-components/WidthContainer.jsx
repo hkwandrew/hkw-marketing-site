@@ -5,6 +5,10 @@ const WidthContainer = styled.div`
     max-width: 90rem;
     margin-inline: auto;
     padding-inline: var(--space-9);
+
+    @media (max-width: 1023px) {
+        padding-inline: var(--space-3);
+    }
 `
 
 const StyledWidthContainer = ({ className, children }) => {

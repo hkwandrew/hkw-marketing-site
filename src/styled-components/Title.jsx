@@ -7,6 +7,10 @@ const Title = styled.h1`
     letter-spacing: var(--letter-spacing-title);
     text-align: center;
     color: var(--color-white);
+
+    @media screen and (max-width: 767px) {
+        font-size: var(--font-size-heading1);
+    }
 `
 
 const StyledTitle = ({ children, className }) => {

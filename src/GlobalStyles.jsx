@@ -61,11 +61,6 @@ const GlobalStyles = createGlobalStyle`
 		--letter-spacing-body2: -0.32px;
 		--letter-spacing-eyebrow: 1.4px;
 
-		/* Breakpoints */
-		--breakpoint-mobile: 375px;
-		--breakpoint-tablet: 768px;
-		--breakpoint-desktop: 1024px;
-
 		/* Shadows */
 		--shadow-small: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		--shadow-medium: 0px 8px 8px rgba(0, 0, 0, 0.25);
@@ -99,6 +94,10 @@ const GlobalStyles = createGlobalStyle`
 
 		font-family: var(--font-primary);
 		font-size: 100%;
+		font-smoothing: antialiased;
+		scroll-behavior: smooth;
+
+		overflow-x: hidden;
 	}
 
 	.hover-underline-animation {
@@ -131,6 +130,7 @@ const GlobalStyles = createGlobalStyle`
 			cursor: pointer;
 		}
 	}
+
 `
 
 export default GlobalStyles

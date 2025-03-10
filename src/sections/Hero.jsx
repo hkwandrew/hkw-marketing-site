@@ -28,6 +28,7 @@ const HeroWrapper = styled.div`
     @media (max-width: 767px) {
         background-position: center center;
         background-size: cover;
+        height: 100vh;
     }
 
     .header-eyebrow {
@@ -81,6 +82,18 @@ const ReviewCards = styled.div`
 
     svg {
         width: 12.0625rem;
+
+        @media (max-width: 640px) {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            margin-inline: -8px;
+        }
+
+        @media (max-width: 1023px) {
+            margin-block: -100px;
+        }
     }
 
     svg:nth-of-type(2),
@@ -96,17 +109,11 @@ const ReviewCards = styled.div`
         margin-inline-start: auto;
     }
 
-    @media (max-width: 767px) {
-        position: relative;
-        // grid-template-areas:
-        //     'plumbers .'
-        //     '. pests'
-        //     'gifts .'
-        //     '. charity'
-        //     'attractions .';
-        svg {
-            width: unset;
-        }
+    @media (max-width: 768px) {
+        translate: 0 20rem;
+    }
+
+    @media (max-width: 1023px) {
         display: flex;
     }
 `
@@ -118,8 +125,12 @@ const Hero = () => {
             const scrollY = window.scrollY
             const svgs = reviewCardsRef.current.querySelectorAll('svg')
 
+            let num
+
+            window.innerWidth > 640 ? (num = 0.0005) : (num = -0.05)
+
             svgs.forEach((svg, index) => {
-                const speedFactor = 0.2 + index * 0.0005
+                const speedFactor = 0.2 + index * num
                 const offsetY = scrollY * speedFactor
                 svg.style.transform = `translateY(-${offsetY}px)`
             })

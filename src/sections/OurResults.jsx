@@ -58,8 +58,16 @@ const CardsWrapper = styled.div`
     ul {
         margin-block: 2.25rem 4.25rem;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr;
         gap: 1.5rem;
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
 
         .our-results-card {
             display: flex;
@@ -69,6 +77,12 @@ const CardsWrapper = styled.div`
             border: 1px solid #f1f2f5;
             padding: var(--space-6);
             background: #fff;
+
+            @media (max-width: 767px) {
+                span {
+                    margin-inline: auto;
+                }
+            }
 
             img {
                 width: 15.5rem;
@@ -83,14 +97,6 @@ const CardsWrapper = styled.div`
                 letter-spacing: var(--letter-spacing-heading2);
                 font-weight: var(--font-weight-semi-bold);
             }
-
-            //         p {
-            //             font-size: 1.25rem;
-            //             line-height: var(--line-height-heading1);
-            //             letter-spacing: -0.4px;
-            //             font-weight: var(--font-weight-regular);
-            //             color: var(--color-secondary);
-            //         }
         }
     }
 `

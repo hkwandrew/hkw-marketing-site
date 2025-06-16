@@ -73,10 +73,14 @@ const CardsWrapper = styled.div`
         padding: 0;
         display: grid;
         gap: 1rem;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr;
 
-        @media (max-width: 767px) {
-            grid-template-columns: 1fr;
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(4, 1fr);
         }
 
         li {

@@ -26,6 +26,12 @@ const Header = styled.section`
         line-height: var(--line-height-heading1);
         letter-spacing: var(--letter-spacing-heading1);
         text-transform: capitalize;
+
+        @media (max-width: 1080px) {
+            font-size: 2rem;
+            text-align: center;
+            letter-spacing: var(--letter-spacing-heading2);
+        }
     }
 
     @media (max-width: 768px) {
@@ -42,6 +48,10 @@ const Form = styled.form`
     padding: var(--space-7);
     flex-direction: column;
     transition: opacity 0.5s ease-in-out;
+
+    @media (max-width: 768px) {
+        padding: var(--space-7) var(--space-5);
+    }
 `
 
 const FormInputContainer = styled.div`
@@ -56,23 +66,29 @@ const FormInputContainer = styled.div`
         position: absolute;
         left: 0;
         top: -10px;
-        font-size: 1.389vw;
-        font-size: ${(props) => (props.shrink ? '1rem' : '1.389vw')};
+        font-size: 1.125rem;
+        font-size: ${(props) => (props.shrink ? '.875rem' : '1.125rem')};
 
         top: ${(props) => (props.shrink ? '-1.5rem' : '-10px')};
         color: #9e9e9e;
         transition: all 0.3s ease;
         pointer-events: none;
+
+        @media (max-width: 768px) {
+            top: ${(props) => (props.shrink ? '-1.5rem' : '-1.5rem')};
+            font-size: 1rem;
+
+            &[for='organization'] {
+                font-size: 0.9rem;
+            }
+        }
     }
 
     label:has(+ textarea) {
-        top: ${(props) => (props.shrink ? '-.75rem' : '.75rem')};
+        top: ${(props) => (props.shrink ? '-1.5rem' : '.75rem')};
 
-        @media (max-width: 1080px) {
-            top: ${(props) => (props.shrink ? '-.75rem' : '.75rem')};
-        }
-        @media (max-width: 600px) {
-            top: ${(props) => (props.shrink ? '-.5rem' : '.75rem')};
+        @media (max-width: 768px) {
+            top: ${(props) => (props.shrink ? '-1.5rem' : '-1.5rem')};
         }
     }
 `
@@ -81,21 +97,21 @@ const TextInput = styled.input`
     background: transparent;
     border: 1px solid transparent;
     font-size: var(--font-size-body);
-    // height: var(--space-8);
     padding: 0;
     border-bottom: 1px solid
         ${(props) => (props.$error ? 'var(--color-hkw-red)' : '#9e9e9e')};
     transition: border-color 0.4s ease-in-out;
     color: var(--color-black);
 
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        height: var(--space-6);
+    }
+
     &:hover {
         border-bottom: 1px solid
             ${(props) =>
                 props.$error ? 'var(--color-hkw-red)' : 'var(--color-black)'};
-    }
-
-    &:focus {
-        outline: none;
     }
 `
 
@@ -110,11 +126,20 @@ const TextArea = styled.textarea`
         margin-top 0.4s ease-in-out;
     resize: none;
     height: var(--space-8);
-    overflow: hidden;
+    text-wrap: wrap;
+
+    @media (max-width: 768px) {
+        height: unset;
+        font-size: var(--font-size-body2);
+    }
 
     &.has-text,
     &:focus {
         margin-top: var(--space-3);
+
+        @media (max-width: 768px) {
+            margin-top: revert;
+        }
     }
 
     &:focus {
@@ -138,6 +163,13 @@ const SubmitButton = styled.button`
     transition: all 0.45s linear;
     cursor: pointer;
     line-height: var(--line-height-eyebrow);
+
+    @media (max-width: 768px) {
+        margin-inline: auto;
+        width: 100%;
+        padding: var(--space-4) 0;
+        text-align: center;
+    }
 
     &:hover {
         color: var(--color-white);
@@ -163,17 +195,68 @@ const ErrorMessage = styled.span`
     font-weight: 450;
     position: absolute;
     top: 28px;
+
+    &.project-error {
+        top: 50px;
+    }
+
+    @media (max-width: 768px) {
+        top: 32px;
+
+        &.project-error {
+            translate: 0 8px;
+        }
+    }
+`
+const ModalOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+`
+
+const ModalContent = styled.div`
+    background: var(--color-white);
+    padding: var(--space-6);
+    border-radius: var(--radius-large);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    position: relative;
+`
+
+const CloseButton = styled.button`
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-hkw-red);
+
+    &:hover {
+        color: var(--color-black);
+    }
 `
 
 const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [focusedInput, setFocusedInput] = useState(null)
+    const [showModal, setShowModal] = useState(false)
     const {
         register,
         handleSubmit,
         setValue,
         formState: { errors },
         watch,
+        reset,
     } = useForm()
     const formRef = useRef()
 
@@ -193,9 +276,14 @@ const ContactForm = () => {
                 'HKW_contact_form',
                 'HKW_marketing_form',
                 templateParams,
-                import.meta.env.VITE_EMAILJS_PK
+                import.meta.env.VITE_EMAILJS_PK,
             )
             console.log('Email sent successfully')
+
+            setShowModal(true)
+            reset()
+
+            setTimeout(() => setShowModal(false), 5000)
         } catch (error) {
             console.error('Failed to send email', error)
         } finally {
@@ -205,6 +293,13 @@ const ContactForm = () => {
 
     const handleInputChange = (e, name) => {
         setValue(name, e.target.value, { shouldValidate: true })
+
+        if (name === 'project') {
+            const textarea = e.target
+
+            textarea.style.height = 'auto'
+            textarea.style.height = textarea.scrollHeight + 'px'
+        }
     }
 
     return (
@@ -272,7 +367,11 @@ const ContactForm = () => {
                             />
                         )}
                         {errors[field] && (
-                            <ErrorMessage className='error-msg'>
+                            <ErrorMessage
+                                className={`error-msg ${
+                                    field === 'project' && 'project-error'
+                                }`}
+                            >
                                 {errors[field].message}
                             </ErrorMessage>
                         )}
@@ -282,6 +381,18 @@ const ContactForm = () => {
                     {isSubmitting ? 'Sending...' : "Let's Chat"}
                 </SubmitButton>
             </Form>
+            {showModal && (
+                <ModalOverlay onClick={() => setShowModal(false)}>
+                    <ModalContent onClick={(e) => e.stopPropagation()}>
+                        <p>Thank you!</p>
+                        <br />
+                        <p>Your message has been submitted successfully.</p>
+                        <CloseButton onClick={() => setShowModal(false)}>
+                            ×
+                        </CloseButton>
+                    </ModalContent>
+                </ModalOverlay>
+            )}
         </ContactContainer>
     )
 }

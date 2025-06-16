@@ -6,6 +6,11 @@ const Heading = styled.h2`
     line-height: var(--line-height-heading1);
     letter-spacing: var(--letter-spacing-heading1);
     text-transform: capitalize;
+
+    @media (max-width: 767px) {
+        font-size: 2.25rem;
+        letter-spacing: var(--letter-spacing-heading3);
+    }
 `
 const StyledHeading = ({ children, className }) => {
     return <Heading className={className}>{children}</Heading>

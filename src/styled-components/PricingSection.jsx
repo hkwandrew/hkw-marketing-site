@@ -4,17 +4,20 @@ import styled from 'styled-components'
 
 const PricingContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     max-width: 90rem;
     margin-inline: auto;
+    grid-template-columns: 1fr;
 
-    @media (max-width: 767px) {
-        grid-template-columns: 1fr;
+    div:last-child {
+        margin-block-start: 3rem;
+    }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
 
         div:last-child {
-            margin-block-start: 3rem;
-        }
+            margin-block-start: 0;
     }
 `
 

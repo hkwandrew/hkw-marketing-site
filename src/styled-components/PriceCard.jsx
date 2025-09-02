@@ -60,7 +60,7 @@ const Price = styled.p`
 `
 
 const Frequency = styled.p`
-    color: #e81831;
+    color: rgb(219,23,46);
     margin-block: 1.5rem 2.5rem;
     padding-inline: 1.5rem;
     font-size: 0.875rem;
@@ -111,7 +111,7 @@ const PriceCard = ({
             </Header>
             <Price>${price}</Price>
             <Frequency>{frequency}</Frequency>
-            <Button variant='primary' size='full'>
+            <Button href='#contact' variant='primary' size='full'>
                 Get Started
             </Button>
         </Card>

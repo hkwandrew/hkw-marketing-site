@@ -28,12 +28,14 @@ const ImgWrapper = styled.span`
 
 const Number = styled.span`
     position: absolute;
-    bottom: -113.43px;
-    left: -33.5px;
-    font-size: 12rem;
+    /* Allow section-specific overrides via CSS variables */
+    bottom: var(--card-number-bottom, -113.43px);
+    top: var(--card-number-top, auto);
+    left: var(--card-number-left, -33.5px);
+    font-size: var(--card-number-size, 12rem);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-heading1);
-    letter-spacing: -3.84px;
+    letter-spacing: var(--card-number-spacing, -3.84px);
     color: var(--color-hkw-red);
     z-index: 0;
 `
@@ -49,9 +51,9 @@ const Title = styled.h3`
 `
 
 const Description = styled.p``
-const Cards = ({ cards }) => {
+const Cards = ({ cards, className }) => {
     return (
-        <CardListWrapper>
+        <CardListWrapper className={className}>
             {cards.map((card, index) => (
                 <Card
                     key={index}

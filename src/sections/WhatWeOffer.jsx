@@ -9,9 +9,9 @@ const whatWeOfferCards = [
     {
         title: 'Goals & \nResearch',
         description:
-            'Pinpoint the best opportunities to reach your audience and ensure you show up when they’re ready to buy.',
+            'Pinpoint the best opportunities to reach your audience and ensure you show up when they’re ready to act.',
         number: '01',
-        backgroundColor: '#FFF2F3;',
+        backgroundColor: '#FFF2F3',
     },
     {
         title: 'Strategy & Development',
@@ -23,7 +23,7 @@ const whatWeOfferCards = [
     {
         title: 'Implementation & Analysis',
         description:
-            'Apply technical enhancements to meet Google’s best practices and boost your rankings.',
+            'Create an effortless experience to entice customers and boost search engine performance.',
         number: '03',
         backgroundColor: '#F2F7FF',
     },
@@ -69,7 +69,15 @@ const CardsWrapper = styled.div`
     margin-inline: auto;
     max-width: 90rem;
 
-    ul {
+    /* Overrides for card number in this section to match Figma */
+    --card-number-left: -24px;
+    --card-number-top: 276px;
+    --card-number-bottom: auto;
+    --card-number-size: 8.75rem; /* 140px */
+    --card-number-spacing: -2.8px;
+
+    /* Target the specific UL rendered by Cards component in this section */
+    ul.what-we-offer-cards {
         padding: 0;
         display: grid;
         gap: 1rem;
@@ -87,25 +95,24 @@ const CardsWrapper = styled.div`
             overflow: hidden;
             padding: var(--space-7) var(--space-6);
             border-radius: var(--radius-large);
-            height: 20.25rem;
-
-            span {
-                display: flex;
-                flex-direction: column;
-                gap: var(--space-4);
-            }
+            height: 21.3125rem; /* 341px */
 
             h3 {
-                font-size: 1.5rem;
-                letter-spacing: -0.6px;
+                font-size: 1.5rem; /* 24px */
+                letter-spacing: -0.48px;
                 white-space: pre-line;
+                line-height: var(--line-height-eyebrow); /* 1 */
+                font-weight: var(--font-weight-semi-bold);
+                text-align: left;
+                margin-block-end: var(--space-5); /* 24px gap to paragraph */
             }
 
             p {
-                font-size: var(--font-size-body);
+                font-size: var(--font-size-body); /* 20px */
                 letter-spacing: var(--letter-spacing-body);
                 color: var(--color-secondary);
-                line-height: var(--line-height-heading1);
+                line-height: 1.2; /* Figma */
+                text-align: left;
             }
         }
     }
@@ -115,7 +122,9 @@ const WhatWeOffer = () => {
     return (
         <WhatWeOfferWrapper>
             <WidthContainer className='what-we-offer-container'>
-                <Eyebrow class='what-we-offer-eyebrow'>What We Offer</Eyebrow>
+                <Eyebrow className='what-we-offer-eyebrow'>
+                    What We Offer
+                </Eyebrow>
                 <Heading className='what-we-offer-title'>
                     Comprehensive Marketing Services
                 </Heading>
@@ -125,7 +134,7 @@ const WhatWeOffer = () => {
                 </Paragraph>
                 <CardsWrapper>
                     <Eyebrow className='what-we-offer-eyebrow'>
-                        What's Included:
+                        What’s Included:
                     </Eyebrow>
                     <Cards
                         cards={whatWeOfferCards}

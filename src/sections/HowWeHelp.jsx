@@ -27,7 +27,7 @@ const howWeHelpCards = [
         className: 'our-team-card',
     },
     {
-        title: 'Make sure your customers can find you online',
+        title: 'Ensure your customers can find you online',
         image: 'find-you-online.svg',
         className: 'our-team-card',
     },
@@ -37,7 +37,7 @@ const howWeHelpCards = [
         className: 'our-team-card',
     },
     {
-        title: 'Gain valuable insights from your data for continued growth',
+        title: 'Gain valuable data for continued growth',
         image: 'gain-insights.svg',
         className: 'our-team-card',
     },

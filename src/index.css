@@ -1,1 +1,20 @@
 @import 'the-new-css-reset';
+
+#contact {
+	@media (max-width: 960px) {
+		grid-template-columns: 1fr;
+
+		section:has(h3) {
+			margin-inline-end: unset;
+		}
+
+		h3 {
+			font-size: 3.5rem;
+			text-align: center;
+
+			@media (max-width: 640px) {
+				font-size: 2rem;
+			}
+		}
+	}
+}

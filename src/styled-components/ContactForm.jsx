@@ -8,10 +8,12 @@ const ContactContainer = styled.section`
     border-radius: 80px 80px 0px 0px;
     background: var(--color-hkw-red);
     grid-template-columns: 1fr 1fr;
+    gap: 8.75rem;
     padding: var(--space-10) var(--space-9);
 
     @media (max-width: 768px) {
-        grid-template-columns: 1fr;
+        gap: unset;
+        grid-template-columns: 1fr !important;
         padding: var(--space-7) var(--space-5);
     }
 `
@@ -29,13 +31,13 @@ const Header = styled.section`
 
         @media (max-width: 1080px) {
             font-size: 2rem;
-            text-align: center;
             letter-spacing: var(--letter-spacing-heading2);
         }
     }
 
     @media (max-width: 768px) {
-        margin-inline-end: 0;
+        text-align: center;
+        margin-inline-end: 0px;
         margin-bottom: var(--space-7);
     }
 `
@@ -48,6 +50,7 @@ const Form = styled.form`
     padding: var(--space-7);
     flex-direction: column;
     transition: opacity 0.5s ease-in-out;
+    gap: 8px;
 
     @media (max-width: 768px) {
         padding: var(--space-7) var(--space-5);
@@ -70,7 +73,7 @@ const FormInputContainer = styled.div`
         font-size: ${(props) => (props.shrink ? '.875rem' : '1.125rem')};
 
         top: ${(props) => (props.shrink ? '-1.5rem' : '-10px')};
-        color: #9e9e9e;
+        color: rgb(117,117,117);
         transition: all 0.3s ease;
         pointer-events: none;
 

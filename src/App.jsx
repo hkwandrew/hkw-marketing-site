@@ -15,7 +15,7 @@ const App = () => {
             <GlobalStyles />
             <Hero />
             <HowWeHelp />
-            <WhatWeOffer />
+            {/* <WhatWeOffer /> */}
             <OurProcess />
             <OurResults />
             <TestimonialSlider />

@@ -29,14 +29,18 @@ const ImgWrapper = styled.span`
 const Number = styled.span`
     position: absolute;
     /* Allow section-specific overrides via CSS variables */
-    bottom: var(--card-number-bottom, -113.43px);
+    bottom: var(--card-number-bottom, -4.29rem); /* -68.64px */
     top: var(--card-number-top, auto);
-    left: var(--card-number-left, -33.5px);
-    font-size: var(--card-number-size, 12rem);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-heading1);
-    letter-spacing: var(--card-number-spacing, -3.84px);
-    color: var(--color-hkw-red);
+    left: var(--card-number-left, -24px);
+    font-family: 'Figtree', var(--font-family-heading, sans-serif);
+    font-size: var(--card-number-size, 8.75rem); /* 140px */
+    font-style: normal;
+    font-weight: var(--font-weight-bold, 700);
+    line-height: var(--card-number-line-height, 1.2);
+    letter-spacing: var(--card-number-spacing, -2.8px);
+    color: var(--color-hkw-red, #e81831);
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
     z-index: 0;
 `
 
@@ -74,7 +78,7 @@ const Cards = ({ cards, className }) => {
                         <Description>{card.description}</Description>
                     </ContentWrapper>
                     {!card.image && card.number && (
-                        <Number>{card.number}</Number>
+                        <Number aria-hidden='true'>{card.number}</Number>
                     )}
                 </Card>
             ))}

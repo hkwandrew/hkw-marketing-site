@@ -13,7 +13,8 @@ const whatWeOfferCards = [
     description:
       'Pinpoint the best opportunities to reach your audience and ensure you show up when they’re ready to act.',
     number: '01',
-    backgroundColor: '#FFF2F3;'
+backgroundColor: '#FFF2F3'
+
   },
   {
     title: 'Strategy & Development',
@@ -83,6 +84,11 @@ const OurProcessWrapper = styled.section`
     width: 100%;
     max-width: 332px;
     margin-inline: auto;
+    margin-block-start: var(--space-6);
+  }
+
+  .our-process-cta {
+    color: var(--color-white);
   }
 `
 const Divider = styled.div`
@@ -108,6 +114,8 @@ const CardsWrapper = styled.div`
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
+    grid-auto-rows: 341px;
+    align-items: stretch;
 
     @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
@@ -119,27 +127,47 @@ const CardsWrapper = styled.div`
 
     li {
       overflow: hidden;
-      padding: var(--space-7) var(--space-6);
-      border-radius: var(--radius-large);
-      height: 20.25rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      padding: 40px 32px;
+      border-radius: 16px;
+      height: 341px;
 
       span {
         display: flex;
         flex-direction: column;
-        gap: var(--space-4);
+        gap: 1.5rem;
       }
 
       h3 {
+        color: #19202a;
+        text-box-trim: trim-both;
+        text-box-edge: cap alphabetic;
+        font-family: 'Figtree', var(--font-family-heading, sans-serif);
         font-size: 1.5rem;
-        letter-spacing: -0.6px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -0.48px;
         white-space: pre-line;
+margin: 0
+
       }
 
       p {
-        font-size: var(--font-size-body);
-        letter-spacing: var(--letter-spacing-body);
-        color: var(--color-secondary);
-        line-height: var(--line-height-heading1);
+        color: #2b3746;
+        text-box-trim: trim-both;
+        text-box-edge: cap alphabetic;
+        font-family: 'Figtree', var(--font-family-body, sans-serif);
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.4px;
+        margin: 0;
       }
     }
   }
@@ -169,7 +197,12 @@ const OurProcess = () => {
             <Cards cards={whatWeOfferCards} className='what-we-offer-cards' />
           </CardsWrapper>
 
-          <StyledButton href='./#contact' size='medium' variant="primary">
+          <StyledButton
+            href='./#contact'
+            size='medium'
+            variant="primary"
+            className='our-process-cta'
+          >
             Get Started
           </StyledButton>
           {/* <PricingSection /> */}

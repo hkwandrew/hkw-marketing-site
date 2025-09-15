@@ -74,51 +74,67 @@ const CardsWrapper = styled.div`
 
     ul {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        gap: var(--space-6) var(--space-5);
         justify-content: center;
+        gap: 2rem 1.5rem;
 
         li {
             display: flex;
-            max-width: 16.875rem;
-            padding: var(--space-4);
             align-items: center;
-            align-self: stretch;
             gap: var(--space-4);
-            background-color: var(--color-white);
+            width: min(100%, 16.75rem);
+            padding: var(--space-4);
+            border-radius: var(--radius-medium);
+            border: 1px solid var(--color-hkw-red);
+            background: #f6f8fb;
 
-            &:nth-of-type(5),
-            &:nth-of-type(6),
-            &:nth-of-type(7) {
-                margin-inline: var(--space-2);
+            &:nth-of-type(n + 5) {
                 padding: var(--space-3);
             }
 
-            span:has(img) {
+            span:first-of-type {
                 display: flex;
-                min-width: var(--space-8)
-                height: var(--space-8);
-                padding: 12px 11.5px 12px 12.5px;
-                justify-content: center;
                 align-items: center;
-                border-radius: var(--radius-small);
-                background: var(--color-bg-salmon);
+                justify-content: center;
+                width: 2.5rem;
+                height: 2.5rem;
+                flex-shrink: 0;
 
                 img {
                     display: block;
-                    width: var(--space-5);
-                    max-inline-size: unset;
+                    width: 2.5rem;
+                    height: 2.5rem;
                 }
             }
 
-            span:has(h3) {
+            span:last-of-type {
+                display: flex;
+                align-items: center;
+                text-align: left;
+
                 h3 {
                     color: var(--color-primary);
-                    font-size: var(--font-size-heading3);
+                    font-size: 1.125rem;
                     font-weight: var(--font-weight-semi-bold);
-                    line-height: var(--line-height-heading3);
-                    letter-spacing: var(--letter-spacing-heading3);
+                    line-height: 1;
+                    letter-spacing: var(--letter-spacing-body2);
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        ul {
+            gap: var(--space-3);
+
+            li {
+                width: 100%;
+                max-width: none;
+                padding: var(--space-4);
+
+                &:nth-of-type(n + 5) {
+                    padding: var(--space-4);
                 }
             }
         }
@@ -133,7 +149,7 @@ const HowWeHelp = () => {
                     How We Help
                 </StyledEyebrow>
                 <StyledHeading className='how-we-help-title'>
-                    Tackle local business challenges with ease.
+                    Tackle local business challenges with ease
                 </StyledHeading>
                 <StyledParagraph className='how-we-help-paragraph'>
                     Build a strong reputation through strategic online marketing

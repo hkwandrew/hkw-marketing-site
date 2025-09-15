@@ -11,28 +11,28 @@ const whatWeOfferCards = [
         description:
             'Pinpoint the best opportunities to reach your audience and ensure you show up when they’re ready to act.',
         number: '01',
-        backgroundColor: '#FFF2F3',
+        className: 'what-we-offer-card goals-and-research-card',
     },
     {
         title: 'Strategy & Development',
         description:
             'Analyze competitors to outpace them with data-driven strategies.',
         number: '02',
-        backgroundColor: '#FFF2FE',
+        className: 'what-we-offer-card strategy-development-card',
     },
     {
         title: 'Implementation & Analysis',
         description:
             'Create an effortless experience to entice customers and boost search engine performance.',
         number: '03',
-        backgroundColor: '#F2F7FF',
+        className: 'what-we-offer-card implementation-analysis-card',
     },
     {
         title: 'Growth & \nPerformance',
         description:
             'Set up robust analytics tracking to give you clear insights into performance.',
         number: '04',
-        backgroundColor: '#FFF8F2',
+        className: 'what-we-offer-card growth-performance-card',
     },
 ]
 
@@ -70,9 +70,9 @@ const CardsWrapper = styled.div`
     max-width: 90rem;
 
     /* Overrides for card number in this section to match Figma */
-    --card-number-left: -24px;
-    --card-number-top: 276px;
-    --card-number-bottom: auto;
+    --card-number-left: -1.5rem; /* 24px outside the wrapper */
+    --card-number-top: auto;
+    --card-number-bottom: -4.29rem; /* 68.64px shows just the top curve */
     --card-number-size: 8.75rem; /* 140px */
     --card-number-spacing: -2.8px;
 
@@ -80,8 +80,10 @@ const CardsWrapper = styled.div`
     ul.what-we-offer-cards {
         padding: 0;
         display: grid;
-        gap: 1rem;
+        gap: clamp(1rem, 1.5vw, 1.5rem);
         grid-template-columns: 1fr;
+        grid-auto-rows: 341px;
+        align-items: stretch;
 
         @media (min-width: 768px) {
             grid-template-columns: 1fr 1fr;
@@ -91,28 +93,75 @@ const CardsWrapper = styled.div`
             grid-template-columns: repeat(4, 1fr);
         }
 
-        li {
+        li.what-we-offer-card {
             overflow: hidden;
-            padding: var(--space-7) var(--space-6);
-            border-radius: var(--radius-large);
-            height: 21.3125rem; /* 341px */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 1.5rem; /* 24px */
+            padding: 40px 32px;
+            border-radius: 1rem; /* 16px */
+            height: 100%;
+            box-shadow: 0px 20px 60px rgba(24, 37, 56, 0.08);
+            text-align: left;
+            transition:
+                box-shadow 180ms ease,
+                transform 180ms ease;
+
+            > span:first-of-type {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem; /* 24px between title and paragraph */
+            }
+
+            &:hover {
+                transform: translateY(-0.25rem);
+                box-shadow: 0px 24px 72px rgba(24, 37, 56, 0.12);
+            }
 
             h3 {
+                color: #19202a;
+                text-box-trim: trim-both;
+                text-box-edge: cap alphabetic;
+                font-family: 'Figtree', var(--font-family-heading, sans-serif);
                 font-size: 1.5rem; /* 24px */
+                font-style: normal;
+                font-weight: 600;
+                line-height: 1; /* 24px */
                 letter-spacing: -0.48px;
                 white-space: pre-line;
-                line-height: var(--line-height-eyebrow); /* 1 */
-                font-weight: var(--font-weight-semi-bold);
-                text-align: left;
-                margin-block-end: var(--space-5); /* 24px gap to paragraph */
+                margin: 0;
             }
 
             p {
-                font-size: var(--font-size-body); /* 20px */
-                letter-spacing: var(--letter-spacing-body);
-                color: var(--color-secondary);
-                line-height: 1.2; /* Figma */
-                text-align: left;
+                color: #2b3746;
+                text-box-trim: trim-both;
+                text-box-edge: cap alphabetic;
+                font-family: 'Figtree', var(--font-family-body, sans-serif);
+                font-size: 1.25rem; /* 20px */
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1.2; /* 24px */
+                letter-spacing: -0.4px;
+                margin: 0;
+            }
+
+            &.goals-and-research-card {
+                background: linear-gradient(180deg, #fff7f8 0%, #ffe6ed 100%);
+            }
+
+            &.strategy-development-card {
+                background: linear-gradient(180deg, #fff2fe 0%, #f9e6ff 100%);
+            }
+
+            &.implementation-analysis-card {
+                background: linear-gradient(180deg, #f4f9ff 0%, #e6f1ff 100%);
+            }
+
+            &.growth-performance-card {
+                background: linear-gradient(180deg, #fff7f2 0%, #ffece0 100%);
             }
         }
     }

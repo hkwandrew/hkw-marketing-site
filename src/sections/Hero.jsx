@@ -151,10 +151,10 @@ const Hero = () => {
                     Spokane Web Marketing
                 </StyledEyebrow>
                 <StyledTitle className='header-title'>
-                    Get Found Online.
+                    Get Found Online
                 </StyledTitle>
                 <Subtitle className='header-subtitle'>
-                    Connect with your Spokane community
+                    Connect with your Spokane community.
                 </Subtitle>
                 <StyledButton
                     href='./#contact'
